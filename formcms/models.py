@@ -14,3 +14,4 @@ class Employee(models.Model):
     emp_code = models.CharField(max_length=3)
     mobile = models.CharField(max_length=15)
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images', blank=True, null=True)

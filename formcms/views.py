@@ -1,4 +1,4 @@
-#from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import EmployeeForm
 from .models import Employee
@@ -20,11 +20,12 @@ def employee_form(request, id=0):
         return render(request, "formcms/employee_form.html",{'form':form})
     else:
         if id == 0:
-            form = EmployeeForm(request.POST)
+            form = EmployeeForm(request.POST, request.FILES)
         else:   
              employee = Employee.objects.get(pk=id)
-             form = EmployeeForm(request.POST, instance = employee)
+             form = EmployeeForm(request.POST, request.FILES, instance = employee)
         if form.is_valid():
+            #handle_uploaded_file(request.FILES['file'])
             form.save()
         return redirect('/employee/list')
 

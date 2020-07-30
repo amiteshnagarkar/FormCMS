@@ -3,7 +3,7 @@
 
 {% block content%}
 
-<form action= "" method="post" autocomplete="off"> 
+<form action= "" method="post" autocomplete="off" enctype="multipart/form-data"> 
     {% csrf_token %} 
     {{form.fullname|as_crispy_field}}
     {{form.mobile|as_crispy_field}}
@@ -12,8 +12,13 @@
         <div class="col-md-4"> 
             {{form.emp_code|as_crispy_field}}
         </div>
+
         <div class="col-md-8"> 
             {{form.position|as_crispy_field}}
+        </div>
+
+        <div class="col-md-8"> 
+            {{form.image|as_crispy_field}}
         </div>
 
 
