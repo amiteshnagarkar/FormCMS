@@ -25,7 +25,6 @@ def employee_form(request, id=0):
              employee = Employee.objects.get(pk=id)
              form = EmployeeForm(request.POST, request.FILES, instance = employee)
         if form.is_valid():
-            #handle_uploaded_file(request.FILES['file'])
             form.save()
         return redirect('/employee/list')
 
