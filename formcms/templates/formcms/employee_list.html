@@ -223,6 +223,8 @@
 
 
                 <div class="col-xl-8 col-lg-8">
+
+                    <!-- need to code how many employees there are -->
                         <h3 class="exp_title">5432 Listings are available</h3>
 
                         {% for employee in employee_list %}
@@ -234,17 +236,10 @@
 
                                         <div class="thumb">
                                             <!-- insert image here-->
-                                            <img src="{{ employee.image.url }}" width = "200" alt="">
+                                            <img src="{{ employee.image.url }}" width = "200" height = "300" alt="">
                                         </div>
 
-                                        <form action="{% url 'employee_delete' employee.id %}" method="post" class="d-inline"> 
-                                            {% csrf_token %}
-                                            <button type = "submit" class = "btn">
-                                                <i class= "far fa-trash-alt fa-lg text-danger float-right"> </i>
-                    
-                                            </button>
-                    
-                                        </form>
+                                       
 
                                         <div class="explorer_bottom d-flex">
                                             <div class="icon">
